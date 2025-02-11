@@ -5,6 +5,10 @@ services:
     build: ./vikt_api
     ports:
       - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://admin:admin@db:5432/vikt
     volumes:
       - .:/app
 
@@ -14,7 +18,19 @@ services:
       - "5000:5000"
     volumes:
       - .:/app
+
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: vikt
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
 volumes:
+  postgres_data:
 
 
 
