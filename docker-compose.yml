@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  vikt_api:
+    build: ./vikt_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+
+  vikt_ws:
+    build: ./vikt_ws
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+volumes:
+
+
+
+
