@@ -29,3 +29,5 @@ COPY . .
 # Указываем команду для запуска приложения
 #CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
 CMD ["fastapi", "run", "main.py", "--proxy-headers", "--port", "5000", "--host", "0.0.0.0"]
+
+

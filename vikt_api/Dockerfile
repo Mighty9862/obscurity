@@ -1,3 +1,4 @@
+
 # Используем официальный образ Python
 FROM python:latest
 

@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Bastion";
+  src: url(./fonts/Bastionkontrastaltc.otf);
+}
+
+@font-face {
+  font-family: "Helios";
+  src: url(./fonts/helios.otf);
+}
+
+:root {
+  background-color: #fff;
+  --header-color: rgb(109, 111, 115);
+  --text-color: black;
+  --red-color: rgb(227, 6, 19);
+  --gradient: linear-gradient(
+    90deg,
+    rgb(234, 101, 17) 0%,
+    rgb(231, 54, 44) 50%,
+    rgb(204, 17, 44) 100%
+  );
+
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  font-family: "Bastion";
+  font-weight: normal;
+}
+
+p,
+a,
+label,
+th,
+td,
+caption,
+span,
+li {
+  font-family: "Helios";
+}
+
+a {
+  color: var(--red-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

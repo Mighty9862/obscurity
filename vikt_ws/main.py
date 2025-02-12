@@ -133,12 +133,14 @@ async def _broadcast_spectators():
         sorted_players = sorted(players, key=lambda x: x["score"], reverse=True)
         message = {
             "type": "rating",
-            "players": sorted_players
+            "players": sorted_players,
+            "section": sections[current_section_index]
         }
     else:
         message = {
             "type": "question",
-            "content": current_question or "Ожидайте следующий вопрос..."
+            "content": current_question or "Ожидайте следующий вопрос...",
+            "section": sections[current_section_index]
         }
     
     for spectator in active_spectators.values():
@@ -148,9 +150,15 @@ async def _broadcast_spectators():
             continue
 
 async def _broadcast(message: str):
+    
+    data_player = {
+        "text": message,
+        "section": sections[current_section_index]
+    }
+
     for player in active_players.values():
         try:
-            await player['ws'].send_text(message)
+            await player['ws'].send_json(data_player)
         except:
             continue
     
