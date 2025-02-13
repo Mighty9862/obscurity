@@ -5,8 +5,8 @@ COPY package.json package.json
 #RUN apk --no-cache add --virtual builds-deps build-base python
 RUN npm i
 RUN npm install vite@latest
-EXPOSE 8080
-RUN npm run build
+EXPOSE 8081
+#RUN npm run build
 #RUN npm install express
 
 CMD ["npm", "run", "preview"] 
