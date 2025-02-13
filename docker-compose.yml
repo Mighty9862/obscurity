@@ -18,13 +18,13 @@ services:
       - .:/app
 
   db:
-    image: postgres:latest
+    image: postgres:15-alpine
     restart: always
     environment:
       POSTGRES_DB: vikt
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
-    command: -c 'max_connections=200000'
+    command: -c 'max_connections=10000'
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
