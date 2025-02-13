@@ -12,6 +12,7 @@ def get_db() -> DatabaseConnection:
         db_echo=settings.db.echo
     )
     
+    
 def get_user_repository(session: AsyncSession = Depends(get_db().sesion_creation)) -> UserRepository:
     return UserRepository(session=session)
 
@@ -41,7 +42,7 @@ def get_question_service(repository: QuestionRepository = Depends(get_question_r
 def get_answer_service(repository: AnswerRepository = Depends(get_answer_repository)) -> AnswerService:
     return AnswerService(repository=repository)
 
-def get_game_service(repository: GameService = Depends(get_answer_repository)) -> GameService:
+def get_game_service(repository: GameService = Depends(get_game_repository)) -> GameService:
     return GameService(repository=repository)
 
 #def get_hobby_service(repository: HobbyService = Depends(get_hobby_repository)) -> HobbyService:

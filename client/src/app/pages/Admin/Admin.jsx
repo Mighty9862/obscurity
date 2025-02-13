@@ -17,26 +17,31 @@ function Admin() {
   };
 
   function startGame() {
-    fetch("http://80.253.19.93:5000/admin/start", { method: "POST" });
+    
+    fetch("http://80.253.19.93:8000/api/v2/websocket/admin/start", { method: "POST" });
   }
   function nextQuestion() {
-    fetch("http://80.253.19.93:5000/admin/next", { method: "POST" });
+    fetch("http://80.253.19.93:8000/api/v2/websocket/admin/next", { method: "POST" });
   }
   function stopGame() {
-    fetch("http://80.253.19.93:5000/admin/stop", { method: "POST" });
+    fetch("http://80.253.19.93:8000/api/v2/websocket/admin/stop", { method: "POST" });
   }
   function showRating() {
-    fetch("http://80.253.19.93:5000/admin/show_rating", { method: "POST" });
+    fetch("http://80.253.19.93:8000/api/v2/websocket/admin/show_rating", { method: "POST" });
   }
   function showQuestion() {
-    fetch("http://80.253.19.93:5000/admin/show_question", { method: "POST" });
+    fetch("http://80.253.19.93:8000/api/v2/websocket/admin/show_question", { method: "POST" });
+  }
+
+  function showAnswers() {
+    
   }
 
   return (
     <div className={styles.window}>
       {/* Рейтинг */}
       <div className={styles.rating}>
-        <Table />
+        {/* <Table /> */}
       </div>
 
       {/* Выбор вопроса */}
@@ -52,6 +57,7 @@ function Admin() {
         <h1>Проектор</h1>
         <Button onClick={showRating}>Показать рейтинг</Button>
         <Button onClick={showQuestion}>Показать вопрос</Button>
+        <Button onClick={showAnswers}>Показать ответы игроков</Button>
       </div>
 
       {/* Таймер */}

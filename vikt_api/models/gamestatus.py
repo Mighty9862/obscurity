@@ -10,10 +10,10 @@ class GameStatus(Base):
                                           default="Начальный этап Великой Отечественной Войны.Коренной перелом в ходе Великой Отечественной войны.Завершающий этап Великой Отечественной войны")
     current_section_index: Mapped[int] = mapped_column(Integer, nullable=True, default=0)
 
-    current_question: Mapped[str] = mapped_column(Text, nullable=True, default=None)
-    answer_for_current_question: Mapped[str] = mapped_column(Text, nullable=True, default=None)
-    current_question_image: Mapped[str] = mapped_column(String(1000), nullable=False, unique=False, default=None)
-    current_answer_image: Mapped[str] = mapped_column(String(1000), nullable=False, unique=False, default=None)
+    current_question: Mapped[str] = mapped_column(Text, nullable=True)
+    answer_for_current_question: Mapped[str] = mapped_column(Text, nullable=True)
+    current_question_image: Mapped[str] = mapped_column(String(1000), nullable=True, unique=False)
+    current_answer_image: Mapped[str] = mapped_column(String(1000), nullable=True, unique=False)
 
     game_started: Mapped[bool] = mapped_column(Boolean, nullable=True, default=False)
     game_over: Mapped[bool] = mapped_column(Boolean, nullable=True, default=False)

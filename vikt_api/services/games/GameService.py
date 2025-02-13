@@ -7,15 +7,18 @@ class GameService:
 
     def __init__(self, repository: GameRepository):
         self.repository = repository
-
+    
+    async def add_gamestatus(self):
+        return await self.repository.add_gamestatus()
+    
     async def get_sections(self):
         return await self.repository.get_sections()
     
     async def start_game(self, current_section_index: int, game_started: bool, game_over: bool):
         return await self.repository.start_game(current_section_index=current_section_index, game_started=game_started, game_over=game_over)
     
-    async def stop_game(self, game_started: bool, game_over: bool):
-        return await self.repository.stop_game(game_started=game_started, game_over=game_over)
+    async def stop_game(self):
+        return await self.repository.stop_game()
     
     async def switch_display_mode(self, display_mode: str):
         return await self.repository.switch_display_mode(display_mode=display_mode)
